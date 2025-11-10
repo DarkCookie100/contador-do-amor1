@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de Amor Caique e Rafaelly</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .snell {
+      font-family: 'Dancing Script', 'Snell Roundhand', cursive;
+    }
+  </style>
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      background: #181028;
+      color: #fff;
+    }
+
+    .contador {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #7c3aed 40%, #e91e63 100%);
+      color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(233, 30, 99, 0.15);
+      padding: 2rem 1.5rem;
+      min-width: 120px;
+      text-align: center;
+      transition: transform 0.2s cubic-bezier(.17, .67, .83, .67), box-shadow 0.2s;
+      will-change: transform;
+      cursor: pointer;
+    }
+
+    .card span {
+      font-size: 2.5rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    .card label {
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+
+    @media (max-width: 600px) {
+      .contador {
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 1rem 0.5rem;
+        min-width: 80px;
+      }
+
+      .card span {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+</body>
+<header>
+  <h1 class="snell" style="color:#e91e63; font-size: 6rem;">Caique ❤️ Rafaelly</h1>
+    <nav style="margin:1rem 0;">
+      <button class="nav-btn" onclick="scrollToSection('gallery')">Galeria</button>
+      <button class="nav-btn" onclick="scrollToSection('story')">História</button>
+    </nav>
+  <!-- Seta para voltar ao topo -->
+  <button id="backToTop" style="position:fixed;bottom:32px;right:32px;z-index:99;background:#7c3aed;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 8px #e91e6344;display:none;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <p class="snell" style="color:#b39ddb; font-size: 3rem;">❤️</p>
+</header>
+<main>
+  <section class="contador" id="contador">
+    <div class="card"><span id="days">0</span><label>Dias</label></div>
+    <div class="card"><span id="hours">0</span><label>Horas</label></div>
+    <div class="card"><span id="minutes">0</span><label>Minutos</label></div>
+    <div class="card"><span id="seconds">0</span><label>Segundos</label></div>
+  </section>
+  <section class="mini-gallery" id="mini-gallery" style="margin:2rem 0;">
+    <h3 class="snell" style="color:#e91e63;text-align:center; font-size: 4rem;">Mini Galeria</h3>
+    <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+      <img src="images/placeholder.jpg" alt="Foto 1" style="width:90px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px #7c3aed;">
+      <img src="images/placeholder.jpg" alt="Foto 2" style="width:90px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px #e91e63;">
+      <img src="images/placeholder.jpg" alt="Foto 3" style="width:90px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px #7c3aed;">
+    </div>
+    <small style="color:#b39ddb;display:block;text-align:center;">Adicione suas fotos favoritas na pasta images.</small>
+  </section>
+  <section class="gallery" id="gallery" style="display:none;">
+    <h2 class="snell" style="color:#e91e63;">Galeria de Fotos</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+      <img src="images/placeholder.jpg" alt="Foto 1" style="width:180px;height:180px;object-fit:cover;border-radius:16px;box-shadow:0 2px 16px #7c3aed;">
+      <!-- Adicione mais imagens aqui -->
+    </div>
+    <small style="color:#b39ddb;">Adicione suas fotos favoritas na pasta images.</small>
+  </section>
+  <section class="story" id="story">
+    <h2 class="snell" style="color:#e91e63; font-size: 4rem;">Nossa História</h2>
+    <p>Era uma vez um casal apaixonado que decidiu compartilhar sua jornada com o mundo. Aqui você pode conhecer mais sobre nós, nossos momentos especiais e o que torna nosso relacionamento único.</p>
+    <img src="images/placeholder.jpg" alt="Foto do casal" style="width:100%;max-width:400px;border-radius:16px;box-shadow:0 2px 16px #7c3aed;margin-top:1rem;">
+    <small style="color:#b39ddb;">Substitua esta imagem por uma foto real do casal.</small>
+  </section>
+</main>
+  <script>
+    function showSection(section) {
+      const sections = ['gallery','story'];
+      document.getElementById('contador').style.display = '';
+      sections.forEach(id => {
+        document.getElementById(id).style.display = (id === section) ? '' : 'none';
+      });
+    }
+    function scrollToSection(section) {
+      showSection(section);
+      setTimeout(() => {
+        const el = document.getElementById(section);
+        if (el) {
+          el.scrollIntoView({behavior: 'smooth'});
+        }
+      }, 50);
+    }
+    // Seta para voltar ao topo
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 200 ? 'flex' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    // Mostra a história por padrão
+    showSection('story');
+  </script>
+</script>
+</body>
+
+</html>
