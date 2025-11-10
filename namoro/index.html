@@ -70,13 +70,15 @@
 </body>
 <header>
   <h1 class="snell" style="color:#e91e63; font-size: 6rem;">Caique ❤️ Rafaelly</h1>
-    <nav style="margin:1rem 0;">
-      <button class="nav-btn" onclick="scrollToSection('gallery')">Galeria</button>
-      <button class="nav-btn" onclick="scrollToSection('story')">História</button>
-    </nav>
+  <nav style="margin:1rem 0;">
+    <button class="nav-btn" onclick="scrollToSection('gallery')">Galeria</button>
+    <button class="nav-btn" onclick="scrollToSection('story')">História</button>
+  </nav>
   <!-- Seta para voltar ao topo -->
   <button id="backToTop" style="position:fixed;bottom:32px;right:32px;z-index:99;background:#7c3aed;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 8px #e91e6344;display:none;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+      <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
   </button>
   <p class="snell" style="color:#b39ddb; font-size: 3rem;">❤️</p>
 </header>
@@ -106,39 +108,39 @@
   </section>
   <section class="story" id="story">
     <h2 class="snell" style="color:#e91e63; font-size: 4rem;">Nossa História</h2>
-    <p>Era uma vez um casal apaixonado que decidiu compartilhar sua jornada com o mundo. Aqui você pode conhecer mais sobre nós, nossos momentos especiais e o que torna nosso relacionamento único.</p>
+    <p>Era uma vez um casal apaixonado que decidiu compartilhar sua jornada com o mundo. Aqui você pode conhecer mais sobre nós, nossos momentos especiais e o que torna nosso relacionamento único teste.</p>
     <img src="images/placeholder.jpg" alt="Foto do casal" style="width:100%;max-width:400px;border-radius:16px;box-shadow:0 2px 16px #7c3aed;margin-top:1rem;">
     <small style="color:#b39ddb;">Substitua esta imagem por uma foto real do casal.</small>
   </section>
 </main>
-  <script>
-    function showSection(section) {
-      const sections = ['gallery','story'];
-      document.getElementById('contador').style.display = '';
-      sections.forEach(id => {
-        document.getElementById(id).style.display = (id === section) ? '' : 'none';
-      });
-    }
-    function scrollToSection(section) {
-      showSection(section);
-      setTimeout(() => {
-        const el = document.getElementById(section);
-        if (el) {
-          el.scrollIntoView({behavior: 'smooth'});
-        }
-      }, 50);
-    }
-    // Seta para voltar ao topo
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 200 ? 'flex' : 'none';
+<script>
+  function showSection(section) {
+    const sections = ['gallery', 'story'];
+    document.getElementById('contador').style.display = '';
+    sections.forEach(id => {
+      document.getElementById(id).style.display = (id === section) ? '' : 'none';
     });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    });
-    // Mostra a história por padrão
-    showSection('story');
-  </script>
+  }
+  function scrollToSection(section) {
+    showSection(section);
+    setTimeout(() => {
+      const el = document.getElementById(section);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
+  }
+  // Seta para voltar ao topo
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 200 ? 'flex' : 'none';
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  // Mostra a história por padrão
+  showSection('story');
+</script>
 </script>
 </body>
 
